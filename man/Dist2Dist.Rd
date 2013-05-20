@@ -6,7 +6,8 @@
   from one model to another.
 }
 \usage{
-Dist2Dist(data, from='Gev', to='sFrechet', loc=NULL, scale=NULL, shape=NULL)
+Dist2Dist(data, from='Gev', to='sFrechet', loc=NULL, scale=NULL,
+          shape=NULL)
 }
 \arguments{
   \item{data}{A numeric vector or a matrix of extreme values.}
@@ -71,7 +72,10 @@ Dist2Dist(data, from='Gev', to='sFrechet', loc=NULL, scale=NULL, shape=NULL)
 
 \seealso{\code{\link{FitGev}}}
 
-\author{Simone Padoan, \email{simone.padoan@stat.unipd.it},
-  \url{http://homes.stat.unipd.it/padoan}.}
+\author{Simone Padoan, \email{simone.padoan@unibocconi.it},
+  \url{http://faculty.unibocconi.it/simonepadoan};
+  Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
+  \url{http://staff.deuv.cl/bevilacqua/}.}
+
 
 \keyword{extremes}
