@@ -108,7 +108,7 @@ set.seed(31231)
 # Set the coordinates of the points:
 x <- runif(100, 0, 10)
 y <- runif(100, 0, 10)
-coords=cbind(x,y)
+coords<-cbind(x,y)
 
 ################################################################
 ###
@@ -132,8 +132,8 @@ data <- RFsim(coordx=coords, corrmodel=corrmodel, param=list(mean=mean,
 
 # Maximum composite-likelihood fitting of the Gaussian random field:
 
-start=list(scale=scale,sill=sill,mean=mean(data))
-fixed=list(nugget=nugget)
+start<-list(scale=scale,sill=sill,mean=mean(data))
+fixed<-list(nugget=nugget)
 # Maximum composite-likelihood fitting of the random field:
 fit <- FitComposite(data, coordx=coords, corrmodel=corrmodel,likelihood="Marginal",
                      type="Pairwise",start=start,fixed=fixed,maxdist=6)
@@ -159,7 +159,7 @@ Covariogram(fit, show.cov=TRUE, show.range=TRUE,
 ###
 ###############################################################
 
-set.seed(1126)
+set.seed(1156)
 # Simulation of the max-stable random field:
 data <- RFsim(coordx=coords, corrmodel=corrmodel, model="ExtGauss", replicates=20,
               param=list(mean=mean,sill=sill,nugget=nugget,scale=scale))$data
@@ -191,32 +191,32 @@ Covariogram(fit, show.cov=TRUE, show.range=TRUE, show.extc=TRUE,
 ###############################################################
 
 # Define the spatial-coordinates of the points:
-x <- runif(20, 0, 1)
-y <- runif(20, 0, 1)
+#x <- runif(20, 0, 1)
+#y <- runif(20, 0, 1)
 # Define the temporal sequence:
-time <- seq(0, 30, 1)
+#time <- seq(0, 30, 1)
 
 # Simulation of the spatio-temporal Gaussian random field:
-data <- RFsim(x, y, time, corrmodel="exp_exp",param=list(mean=mean,
-              nugget=nugget,scale_s=0.5,scale_t=1,sill=sill))$data
+#data <- RFsim(x, y, time, corrmodel="exp_exp",param=list(mean=mean,
+#              nugget=nugget,scale_s=0.5,scale_t=1,sill=sill))$data
 
 # Maximum composite-likelihood fitting of the space-time Gaussian random field:
-fit <- FitComposite(data, x, y, time, corrmodel="exp_exp", maxtime=5,
-                    likelihood="Marginal",type="Pairwise", fixed=list(
-                    nugget=nugget, mean=mean),start=list(scale_s=0.2,
-                    scale_t=1, sill=sill))
+#fit <- FitComposite(data, x, y, time, corrmodel="exp_exp", maxtime=5,
+#                    likelihood="Marginal",type="Pairwise", fixed=list(
+#                    nugget=nugget, mean=mean),start=list(scale_s=0.2,
+#                    scale_t=1, sill=sill))
 
 # Empirical estimation of spatio-temporal covariance:
-vario <- EVariogram(data, x, y, time, maxtime=10)
+#vario <- EVariogram(data, x, y, time, maxtime=10)
 
 # Plot of the fitted space-time covariace
-Covariogram(fit,show.cov=TRUE)
+#Covariogram(fit,show.cov=TRUE)
 
 # Plot of the fitted space-time variogram
-Covariogram(fit,vario=vario,show.vario=TRUE)
+#Covariogram(fit,vario=vario,show.vario=TRUE)
 
 # Plot of covariance, variogram and spatio and temporal profiles:
-Covariogram(fit,vario=vario,fix.lagt=1,fix.lags=1,show.vario=TRUE,pch=20)
+#Covariogram(fit,vario=vario,fix.lagt=1,fix.lags=1,show.vario=TRUE,pch=20)
 
 ################################################################
 ###
@@ -227,27 +227,27 @@ Covariogram(fit,vario=vario,fix.lagt=1,fix.lags=1,show.vario=TRUE,pch=20)
 ###
 ###############################################################
 
-set.seed(1240)
+#set.seed(1240)
 
 # Define the spatial-coordinates of the points:
-x <- seq(0,3, 0.1)
-y <- seq(0,3, 0.1)
+#x <- seq(0,3, 0.1)
+#y <- seq(0,3, 0.1)
 
 # Simulation of the Binary Gaussian random field:
-data <- RFsim(x, y, corrmodel=corrmodel, model="BinaryGauss",
-              threshold=0,param=list(nugget=nugget,mean=mean,
-              scale=.6,sill=0.8))$data
+#data <- RFsim(x, y, corrmodel=corrmodel, model="BinaryGauss",
+#              threshold=0,param=list(nugget=nugget,mean=mean,
+#              scale=.6,sill=0.8))$data
 
 # Maximum composite-likelihood fitting of the Binary Gaussian random field:
-fit <- FitComposite(data, x, y, corrmodel=corrmodel, model="BinaryGauss",
-                    maxdist=0.8, likelihood="Marginal", type="Pairwise",
-                    start=list(mean=mean,scale=0.1,sill=0.1))
+#fit <- FitComposite(data, x, y, corrmodel=corrmodel, model="BinaryGauss",
+#                    maxdist=0.8, likelihood="Marginal", type="Pairwise",
+#                    start=list(mean=mean,scale=0.1,sill=0.1))
 
 # Empirical estimation of the lorelogram:
-vario <- EVariogram(data, x, y, type="lorelogram", maxdist=2)
+#vario <- EVariogram(data, x, y, type="lorelogram", maxdist=2)
 
 # Plot of fitted and empirical lorelograms:
-Covariogram(fit, vario=vario, show.vario=TRUE, lags=seq(0.1,2,0.1),pch=20)
+#Covariogram(fit, vario=vario, show.vario=TRUE, lags=seq(0.1,2,0.1),pch=20)
 }
 
 \keyword{Composite}
