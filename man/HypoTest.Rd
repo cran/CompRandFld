@@ -147,13 +147,14 @@ Likelihood Methods. \emph{Statistica Sinica}, \bold{21}, 5--42.
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
   Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
-  \url{http://staff.deuv.cl/bevilacqua/}.}
-
+  \url{https://sites.google.com/a/uv.cl/moreno-bevilacqua/home}.}
 
 \seealso{
   \command{\link{FitComposite}}.
 }
 \examples{
+# Please remove the symbol hashtag to run the code
+
 library(CompRandFld)
 library(RandomFields)
 set.seed(3451)
@@ -186,12 +187,12 @@ data <- RFsim(x, y, corrmodel=corrmodel, param=list(mean=mean,
 
 # Maximum composite-likelihood fitting of the random field, full model:
 fit1 <- FitComposite(data, x, y, corrmodel=corrmodel, maxdist=5,
-                    varest=TRUE,start=list(power=power,scale=scale,sill=sill),
+                    varest=TRUE,start=list(mean=mean,power=power,scale=scale,sill=sill),
                     fixed=list(nugget=1))
 
 # Maximum composite-likelihood fitting of the random field, first nasted model:
 fit2 <- FitComposite(data, x, y, corrmodel=corrmodel, maxdist=5,
-                    varest=TRUE,start=list(power=power,scale=scale),
+                    varest=TRUE,start=list(mean=mean,power=power,scale=scale),
                     fixed=list(nugget=1,sill=1))
 
 # Maximum composite-likelihood fitting of the random field, second nasted model:

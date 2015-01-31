@@ -112,6 +112,9 @@ WLeastSquare(data, coordx, coordy=NULL, coordt=NULL, corrmodel,
 
 \references{
 
+Padoan, S. A. and Bevilacqua, M. (2015). Analysis of Random Fields Using CompRandFld.
+  \emph{Journal of Statistical Software}, \bold{63}(9), 1--27.
+
   Barry, J. T., Crowder, M. J. and Diggle, P. J. (1997)
   \emph{Parametric estimation of the variogram}. Tech. Report, Dept Maths &
   Stats, Lancaster University.
@@ -131,8 +134,7 @@ WLeastSquare(data, coordx, coordy=NULL, coordt=NULL, corrmodel,
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
   Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
-  \url{http://staff.deuv.cl/bevilacqua/}.}
-
+  \url{https://sites.google.com/a/uv.cl/moreno-bevilacqua/home}.}
 
 
 \examples{
@@ -165,8 +167,8 @@ scale <- 2
 data <- RFsim(x, y, corrmodel=corrmodel, param=list(mean=mean,
               sill=sill, nugget=nugget, scale=scale))$data
 
-fix=list(nugget=0)
-ini=list(scale=scale,sill=sill)
+fix<-list(nugget=0)
+ini<-list(scale=scale,sill=sill)
 # Least square fitting of the random field:
 fit <- WLeastSquare(data, x, y, corrmodel=corrmodel,fixed=fix,start=ini)
 

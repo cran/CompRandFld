@@ -108,13 +108,14 @@ In this case, space or space-time tapered function and spatial or spatio- tempor
 
 
 \references{
+Padoan, S. A. and Bevilacqua, M. (2015). Analysis of Random Fields Using CompRandFld.
+  \emph{Journal of Statistical Software}, \bold{63}(9), 1--27.
+  
   Gaetan, C. and Guyon, X. (2010) \emph{Spatial Statistics and Modelling}.
   Spring Verlang, New York.
   Furrer R.,  Genton, M.G. and  Nychka D. (2006). \emph{Covariance
   Tapering for Interpolation of Large Spatial Datasets}.
   Journal of Computational and Graphical Statistics, \bold{15-3}, 502--523.
-
-
 }
 
 \seealso{\code{\link{Covmatrix}}}
@@ -122,7 +123,7 @@ In this case, space or space-time tapered function and spatial or spatio- tempor
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
   Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
-  \url{http://staff.deuv.cl/bevilacqua/}.}
+  \url{https://sites.google.com/a/uv.cl/moreno-bevilacqua/home}.}
 
 \examples{
 
@@ -180,28 +181,28 @@ pr<-Kri(loc=loc_to_pred,coordx=coords,corrmodel=corrmodel,
 ###
 ###############################################################
 
-pr_tap<-Kri(loc=loc_to_pred,coordx=coords,corrmodel=corrmodel,data=data,
-       param= as.list(c(fit$param,fit$fixed)),type="Tapering",
-       maxdist=0.15,taper="Wendland1")
+##pr_tap<-Kri(loc=loc_to_pred,coordx=coords,corrmodel=corrmodel,data=data,
+##       param= as.list(c(fit$param,fit$fixed)),type="Tapering",
+##       maxdist=0.15,taper="Wendland1")
 
-colour <- rainbow(100)
+##colour <- rainbow(100)
 
-par(mfrow=c(2,2))
+##par(mfrow=c(2,2))
 # simple kriging map prediction
-image.plot(xx, xx, matrix(pr$pred,ncol=length(xx)),col=colour,
-           xlab="",ylab="",main="Simple Kriging")
+##image.plot(xx, xx, matrix(pr$pred,ncol=length(xx)),col=colour,
+     ##      xlab="",ylab="",main="Simple Kriging")
 
 # simple kriging map prediction variance
-image.plot(xx, xx, matrix(pr$varpred,ncol=length(xx)),col=colour,
-           xlab="",ylab="",main="Std error")
+##image.plot(xx, xx, matrix(pr$varpred,ncol=length(xx)),col=colour,
+   ##        xlab="",ylab="",main="Std error")
 
 # simple tapered kriging map prediction
-image.plot(xx, xx, matrix(pr_tap$pred,ncol=length(xx)),col=colour,
-           xlab="",ylab="",main="Simple Tapered Kriging")
+##image.plot(xx, xx, matrix(pr_tap$pred,ncol=length(xx)),col=colour,
+  ##         xlab="",ylab="",main="Simple Tapered Kriging")
 
 # simple taperd kriging map prediction variance
-image.plot(xx, xx, matrix(pr_tap$varpred,ncol=length(xx)),col=colour,
-           xlab="",ylab="",main="Std error")
+##image.plot(xx, xx, matrix(pr_tap$varpred,ncol=length(xx)),col=colour,
+ ##          xlab="",ylab="",main="Std error")
 
 
 ################################################################
@@ -209,70 +210,62 @@ image.plot(xx, xx, matrix(pr_tap$varpred,ncol=length(xx)),col=colour,
 ################################################################
 
 # Define the spatial-coordinates of the points:
-#x <- runif(15, 0, 1)
-#y <- runif(15, 0, 1)
-#coords<-cbind(x,y)
-#times<-1:7
+x <- runif(15, 0, 1)
+y <- runif(15, 0, 1)
+coords<-cbind(x,y)
+times<-1:7
 
 #  Define the times to predict
-#times_to_pred<-8:10
+times_to_pred<-8:10
 
 # Define model correlation and associated parameters
-#corrmodel<-"exp_exp"
-#param<-list(nugget=0,mean=1,scale_s=1,scale_t=2,sill=2)
+corrmodel<-"exp_exp"
+param<-list(nugget=0,mean=1,scale_s=1,scale_t=2,sill=2)
 
 # Simulation of the space time Gaussian random field:
-#set.seed(31)
-#data<-RFsim(coordx=coords,coordt=times,corrmodel=corrmodel,
-#           param=param)$data
+set.seed(31)
+data<-RFsim(coordx=coords,coordt=times,corrmodel=corrmodel,
+           param=param)$data
 
 # Maximum likelihood fitting of the space time random field:
-#fit <- FitComposite(data, coordx=coords, coordt=times,
-#                    corrmodel=corrmodel, likelihood='Full',
-#                    type='Standard',fixed=list(mean=1,
-#                    nugget=0))
+start <- list(scale_s=1,scale_t=2,sill=2)
+fixed <- list(mean=1,nugget=0)
+fit <- FitComposite(data, coordx=coords, coordt=times,
+                    corrmodel=corrmodel, likelihood='Marginal',
+                    type='Pairwise',start=start,fixed=fixed,
+                    maxdist=0.5,maxtime=3)
 
-################################################################
-###
-### Example 3. Temporal ordinary kriging of one location site for
-### a Gaussian random fields with estimated double exponential
-### correlation.
-###
-################################################################
-
-#param<-as.list(c(fit$param,fit$fixed))
-#pr<-Kri(loc=c(.5,.5),time=times_to_pred,coordx=coords,coordt=times,
-#        corrmodel=corrmodel,param=param,data=data,type_krig="ordinary")
-
-#pr$pred       #  prediction
-#pr$varpred    #  prediction variance
 
 
 ################################################################
 ###
-### Example 4. Spatio temporal simple kriging of n locations
+### Example 3. Spatio temporal simple kriging of n locations
 ### sites and m temporal instants for a Gaussian random fields
 ### with estimated double exponential correlation.
 ###
 ###############################################################
 
-#pr<-Kri(loc=loc_to_pred,time=times_to_pred,coordx=coords,coordt=times,
-#       corrmodel=corrmodel, param=param,data=data)
+param<-as.list(c(fit$param,fit$fixed))
 
-#par(mfrow=c(3,2))
+pr<-Kri(loc=loc_to_pred,time=times_to_pred,coordx=coords,coordt=times,
+       corrmodel=corrmodel, param=param,data=data)
 
-#for(i in 1:3){
-#image.plot(xx, xx, matrix(pr$pred[i,],ncol=length(xx)),col=colour,
-#           main = paste("Kriging Time=" , i),ylab="")
-#image.plot(xx, xx, matrix(pr$varpred[i,],ncol=length(xx)),col=colour,
-#           main = paste("Std error Time=" , i),ylab="")
-#}
+par(mfrow=c(3,2))
+
+colour <- rainbow(100)
+
+for(i in 1:3){
+image.plot(xx, xx, matrix(pr$pred[i,],ncol=length(xx)),col=colour,
+           main = paste("Kriging Time=" , i),ylab="")
+image.plot(xx, xx, matrix(pr$varpred[i,],ncol=length(xx)),col=colour,
+           main = paste("Std error Time=" , i),ylab="")
+}
 
 
 
 ################################################################
 ###
-### Example 5. Spatio temporal tapered simple kriging of n locations
+### Example 4. Spatio temporal tapered simple kriging of n locations
 ### sites and m temporal instants for a Gaussian random fields
 ### with estimated double exponential correlation.
 ###

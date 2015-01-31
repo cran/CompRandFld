@@ -78,6 +78,11 @@ RFsim(coordx, coordy=NULL, coordt=NULL, corrmodel, distance="Eucl",
   \item{threshold}{The threshold for deriving the binary random field.}
 }
 
+\references{
+Padoan, S. A. and Bevilacqua, M. (2015). Analysis of Random Fields Using CompRandFld.
+  \emph{Journal of Statistical Software}, \bold{63}(9), 1--27.
+}
+
 \seealso{\code{\link{Covmatrix}},
          \code{\link[RandomFields]{GaussRF}},
          \code{\link[RandomFields]{MaxStableRF}}}
@@ -85,8 +90,7 @@ RFsim(coordx, coordy=NULL, coordt=NULL, corrmodel, distance="Eucl",
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
   Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
-  \url{http://staff.deuv.cl/bevilacqua/}.}
-
+  \url{https://sites.google.com/a/uv.cl/moreno-bevilacqua/home}.}
 
 \examples{
 library(CompRandFld)

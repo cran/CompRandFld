@@ -76,6 +76,9 @@ Covariogram(fitted, lags=NULL, lagt=NULL, answer.cov=FALSE,
 }
 
 \references{
+Padoan, S. A. and Bevilacqua, M. (2015). Analysis of Random Fields Using CompRandFld.
+  \emph{Journal of Statistical Software}, \bold{63}(9), 1--27.
+  
    Cooley, D., Naveau, P. and Poncet, P. (2006) \emph{Variograms for spatial
   max-stable random fields}. Dependence in Probability and
 Statistics, p. 373--390.
@@ -95,7 +98,7 @@ Wiley.
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
   Moreno Bevilacqua, \email{moreno.bevilacqua@uv.cl},
-  \url{http://staff.deuv.cl/bevilacqua/}.}
+  \url{https://sites.google.com/a/uv.cl/moreno-bevilacqua/home}.}
 
 
 
