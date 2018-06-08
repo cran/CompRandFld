@@ -1,6 +1,18 @@
 exportPattern("^[^\\.]")
-useDynLib(CompRandFld)
+useDynLib(CompRandFld, .registration = TRUE)
 # S3 Methods
 
 S3method(print,FitComposite)
 S3method(print,WLS)
+
+import(RandomFields)
+import(spam)
+import(scatterplot3d)
+import(fields)
+import(mapproj)
+import(methods)
+import(maps)
+
+importFrom("grDevices", "dev.cur")
+importFrom("graphics", "abline", "par")
+importFrom("stats", "optim", "pchisq", "pnorm", "qnorm", "rnorm","uniroot", "var", "window")

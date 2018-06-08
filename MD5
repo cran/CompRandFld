@@ -1,5 +1,5 @@
-5295770ed69c7b94d3a865b16246e440 *DESCRIPTION
-48b645121b62b6734b1249c0fda8cfe4 *NAMESPACE
+17113080cff46cc0050d3742b6f5c3ab *DESCRIPTION
+58d6ce127a84167d1ad89cf7cc8a514d *NAMESPACE
 b4765932f7d36e4ed50efe7182fcfd55 *R/CompositeLikelihood.r
 60f726ae0993aeeb3cc0c526d3f5f1d5 *R/Covariogram.r
 0f056328ce93c8bf606b46f0c24bd383 *R/Covmatrix.r
@@ -7,13 +7,13 @@ b4765932f7d36e4ed50efe7182fcfd55 *R/CompositeLikelihood.r
 f92dd8af40942c9b153d970ae51ced76 *R/EmpiricalEstimators.r
 02f3187bb6d02bcfeca602dab013f799 *R/Fitting.r
 2742bfcecc178dfa73f8e7af218fa8bd *R/Kriging.r
-fb15c81cd943339156e34786754a0aa7 *R/Likelihood.r
+5429b36f5e02b6a3f36fe6ea62433066 *R/Likelihood.r
 0a4171e6e399b64ff0b92fedaa7bac87 *R/Simulation.r
 1d1914ce249bf164e86ba56afb18d8ee *R/Statistics.r
 b4bc0d34906748263a6d9c3fbc2d222b *R/Utility.r
 b6c1bd9ff2150c24f29e56f463f8d58c *R/WeightedLeastSquare.r
-644f7ad08290d1891367229129ede76f *data/irishwinds.rda
-96b54163d802f2e0691102f78b05ff35 *data/usrain.rda
+cb2ed46870a6ae403bda5ea220541497 *data/irishwinds.rda
+f4d155017f3c96682a00b046de458857 *data/usrain.rda
 15c5bc5a69682963694e893b384b9894 *inst/CITATION
 bc365893d31e93e3f8854aa122739194 *inst/doc/CompRandFld-manual.pdf
 13936537315afd72355a9db54a74364c *man/CheckCorrModel.Rd
@@ -52,4 +52,5 @@ e55859ee092e8a95475ac4aaf3f2f8d0 *src/Gradient.c
 bc49bde388a0abd7624fc5a078e5ff40 *src/Utility.c
 4cd8851c993ae1e595d45eb7a4e42067 *src/header.h
 30a748a2feea1aeb5cf3465975e7e9c5 *src/mvndstpack.f
+e3397aced3056496d3bf19157e929600 *src/registerDynamicSymbol.c
 5d79c0baa62b8a9f01cb7a96ccfb0f87 *src/weightedleastsquare.c
