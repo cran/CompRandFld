@@ -49,10 +49,7 @@ RFsim(coordx, coordy=NULL, coordt=NULL, corrmodel, distance="Eucl",
 
 \details{
   Note that this function is also interfaced to the \bold{R} package \bold{RandomFields},
-  using fast routines therein developed for the simulation of random fields, see
-  for example
-  \code{\link[RandomFields]{GaussRF}},
-  \code{\link[RandomFields]{MaxStableRF}}, ect.
+  using fast routines therein developed for the simulation of random fields.
 }
 
 \value{
@@ -83,9 +80,7 @@ Padoan, S. A. and Bevilacqua, M. (2015). Analysis of Random Fields Using CompRan
   \emph{Journal of Statistical Software}, \bold{63}(9), 1--27.
 }
 
-\seealso{\code{\link{Covmatrix}},
-         \code{\link[RandomFields]{GaussRF}},
-         \code{\link[RandomFields]{MaxStableRF}}}
+\seealso{\code{\link{Covmatrix}}}
 
 \author{Simone Padoan, \email{simone.padoan@unibocconi.it},
   \url{http://faculty.unibocconi.it/simonepadoan};
